@@ -6,3 +6,4 @@ many small project i do
 # small-project
 b4a6796 (clean project structure (remove submodules, fix repo))
 # mini-projects
+# mini-projects
