@@ -1,26 +1,28 @@
-1. Organize the repository into a clean structure:
-   - AI projects
-   - Web projects
-   - Game projects
+Act as a professional technical writer and summarize my software development work into a clean portfolio description.
 
-2. Write a professional main README.md that includes:
-   - Clear introduction of me as a developer
-   - Description of each project category
-   - Technologies used (AI, Web, Game Dev)
-   - Purpose of the repository (learning + portfolio)
-   - Setup instructions
-   - Future improvements
+Context:
+I am a student developer working on multiple mini-projects in:
+- Artificial Intelligence (AI)
+- Web Development
+- Game Development
 
-3. For EACH project inside the repo:
-   - Create a clean README.md
-   - Include: description, features, tech stack, how it works, and future improvements
-   - Keep it simple, professional, and recruiter-friendly
+I have built projects such as:
+- Student recommendation system (AI-based)
+- Job finder web platform
+- 2D platformer game
+- AI chatbot for students
 
-4. Improve naming consistency of projects and folders.
+Your task:
+1. Write a professional "About Me" section
+2. Summarize my experience in AI, Web, and Game development
+3. Highlight my skills clearly (backend, frontend, ML basics, APIs)
+4. Make it suitable for:
+   - GitHub profile README
+   - LinkedIn bio
+   - CV summary
 
-5. Suggest 3 improvements to make the repository look like a strong internship/PFE portfolio.
-
-Constraints:
-- Keep everything realistic (no fake features)
-- Focus on clarity, structure, and recruiter appeal
-- Avoid unnecessary complexity
+Rules:
+- Keep it professional and realistic
+- No exaggeration or fake experience
+- Clear, short, and recruiter-friendly language
+- Focus on skills and learning progress, not titles
