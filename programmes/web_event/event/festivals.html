@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Festivals - EventHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/festival.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="/api/placeholder/40/40" alt="Logo">
+            <span class="brand-name">EventHub</span>
+        </div>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-center" id="navMenu">
+            <a href="message.php">News</a>
+            <a href="faq.php">FAQ</a>
+            <a href="aide.php">Help</a>
+            <a href="apropos.php">About Us</a>
+        </div>
+        <div class="navbar-right">
+            <button class="create-btn">
+                <i class="fas fa-plus"></i>
+                <a href="create.php">create</a>
+            </button>
+            <div class="user-profile">
+                <div class="user-avatar">FF</div>
+                <span class="user-name">Freaky-Faidi</span>
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <img src="https://www.visit.alsace/wp-content/uploads/2018/11/festival-decibulles-2017-laurent-khram-longvixay-1-1600x900.jpg" alt="Festivals Banner" class="festival-banner">
+
+        <h2 class="festival-list-title">Upcoming Music Festivals</h2>
+
+        <div class="festival-grid">
+            <div class="festival-card">
+                <img src="https://images.unsplash.com/photo-1562395877-499483451375?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8M3x8bXVzaWMlMjBmZXN0aXZhbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="Summer Vibes Fest" class="festival-card-img">
+                <div class="festival-card-info">
+                    <h3 class="festival-card-title">Summer Vibes Fest</h3>
+                    <div class="festival-card-date">
+                        <i class="far fa-calendar"></i> Jul 12-14, 2025
+                    </div>
+                    <div class="festival-card-location">
+                        <i class="fas fa-map-marker-alt"></i> Coastal City Park
+                    </div>
+                    <p class="festival-card-details">Experience the best of indie and electronic music under the summer sky. Featuring top international and local artists.</p>
+                    <div class="festival-card-footer">
+                        <span class="festival-card-price">From $99</span>
+                        <span class="festival-card-interest">
+                            <i class="far fa-heart"></i> 876
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="festival-card">
+                <img src="https://images.unsplash.com/photo-1519681393784-d1202a9c339e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8bXVzaWMlMjBmZXN0aXZhbHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=800&q=60" alt="Urban Beats Festival" class="festival-card-img">
+                <div class="festival-card-info">
+                    <h3 class="festival-card-title">Urban Beats Festival</h3>
+                    <div class="festival-card-date">
+                        <i class="far fa-calendar"></i> Aug 5-7, 2025
+                    </div>
+                    <div class="festival-card-location">
+                        <i class="fas fa-map-marker-alt"></i> Metro Convention Center
+                    </div>
+                    <p class="festival-card-details">A celebration of hip-hop, R&B, and urban culture. Get ready for energetic performances and unforgettable vibes.</p>
+                    <div class="festival-card-footer">
+                        <span class="festival-card-price">From $79</span>
+                        <span class="festival-card-interest">
+                            <i class="far fa-heart"></i> 1.1k
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="festival-card">
+                <img src="https://images.unsplash.com/photo-1500462918059-b1a0cb512f1d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTF8fG11c2ljJTIwZmVzdGl2YWx8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" alt="Global Sounds Fest" class="festival-card-img">
+                <div class="festival-card-info">
+                    <h3 class="festival-card-title">Global Sounds Fest</h3>
+                    <div class="festival-card-date">
+                        <i class="far fa-calendar"></i> Sep 18-20, 2025
+                    </div>
+                    <div class="festival-card-location">
+                        <i class="fas fa-map-marker-alt"></i> World Unity Park
+                    </div>
+                    <p class="festival-card-details">Experience the rich tapestry of world music, from traditional folk to contemporary global beats. A truly diverse musical journey.</p>
+                    <div class="festival-card-footer">
+                        <span class="festival-card-price">From $89</span>
+                        <span class="festival-card-interest">
+                            <i class="far fa-heart"></i> 920
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="festival-card">
+                <img src="https://images.unsplash.com/photo-1514525251076-949b65ca1640?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTZ8fG11c2ljJTIwZmVzdGl2YWx8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" alt="Electro Pulse Fest" class="festival-card-img">
+                <div class="festival-card-info">
+                    <h3 class="festival-card-title">Electro Pulse Fest</h3>
+                    <div class="festival-card-date">
+                        <i class="far fa-calendar"></i> Oct 27-29, 2025
+                    </div>
+                    <div class="festival-card-location">
+                        <i class="fas fa-map-marker-alt"></i> Digital Arts Center
+                    </div>
+                    <p class="festival-card-details">Immerse yourself in the world of electronic dance music with top DJs and cutting-edge visual effects.</p>
+                    <div class="festival-card-footer">
+                        <span class="festival-card-price">From $69</span>
+                        <span class="festival-card-interest">
+                            <i class="far fa-heart"></i> 780
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="festival-card">
+                <img src="https://images.unsplash.com/photo-1503097828985-95303bfd1981?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fG11c2ljJTIwZmVzdGl2YWx8ZW58MHx8MHx8&auto=format&fit=crop&w=800&q=60" alt="Rock Legends Fest" class="festival-card-img">
+                <div class="festival-card-info">
+                    <h3 class="festival-card-title">Rock Legends Fest</h3>
+                    <div class="festival-card-date">
+                        <i class="far fa-calendar"></i> Nov 15-17, 2025
+                    </div>
+                    <div class="festival-card-location">
+                        <i class="fas fa-map-marker-alt"></i> Grand Arena Outdoors
+                    </div>
+                    <p class="festival-card-details">Witness iconic rock bands and emerging artists deliver powerful performances that will shake the ground.</p>
+                    <div class="festival-card-footer">
+                        <span class="festival-card-price">From $119</span>
+                        <span class="festival-card-interest">
+                            <i class="far fa-heart"></i> 1.5k
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4 class="footer-title">About</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-info-circle"></i> Our Story</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Our Team</a></li>
+                    <li><a href="#"><i class="fas fa-briefcase"></i> Careers</a></li>
+                    <li><a href="#"><i class="fas fa-newspaper"></i> News</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">
+                    Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Help Center</a></li>
+                    <li><a href="#"><i class="fas fa-ticket-alt"></i> Contact Support</a></li>
+                    <li><a href="#"><i class="fas fa-file-alt"></i> Terms & Conditions</a></li>
+                    <li><a href="#"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Contact Us</h4>
+                <p class="contact-info"><i class="fas fa-map-marker-alt"></i> 123 Festival Way, Tunisia</p>
+                <p class="contact-info"><i class="fas fa-phone"></i> +216 12 345 678</p>
+                <p class="contact-info"><i class="fas fa-envelope"></i> info@eventhub.tn</p>
+            </div>
+        </div>
+        <div class="social-links">
+            <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+        <div class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Subscribe to our Newsletter">
+            <button class="newsletter-btn">Subscribe</button>
+        </div>
+        <p class="copyright">© 2025 EventHub. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+            document.getElementById('navMenu').classList.toggle('show');
+        });
+
+        // Set the 'Festivals' link as active in the navbar
+        const navLinks = document.querySelectorAll('.navbar-center a');
+        navLinks.forEach(link => {
+            if (link.textContent.toLowerCase() === 'festivals') {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+
+</html>

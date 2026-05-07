@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up | EventHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/sign.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="/api/placeholder/40/40" alt="Logo">
+            <span class="brand-name">EventHub</span>
+        </div>
+        <div class="navbar-center" id="navMenu">
+            <a href="message.php">News</a>
+            <a href="faq.php">FAQ</a>
+            <a href="aide.php">Help</a>
+            <a href="apropos.php">About Us</a>
+        </div>
+        <div class="navbar-right">
+            <button class="create-btn">Create</button>
+            <div class="user-profile">
+                <div class="user-avatar">FF</div>
+                <span class="user-name">Freaky-Faidi</span> ▼
+            </div>
+        </div>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">☰</button>
+    </nav>
+
+    <main>
+        <section class="signup-container">
+            <h1>Create an Account</h1>
+            <?php if ($message): ?>
+            <p class="error-message">
+                <?= htmlspecialchars($message) ?>
+            </p>
+            <?php endif; ?>
+            <form class="signup-form" method="POST" action="">
+                <div>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <div>
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                </div>
+                <button type="submit">Sign Up</button>
+            </form>
+            <div class="additional-links">
+                <p>Already have an account? <a href="login.php">Log in here</a>.</p>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        document.getElementById('mobileMenuToggle').addEventListener('click', function() {
+            const nav = document.getElementById('navMenu');
+            nav.classList.toggle('show');
+        });
+    </script>
+</body>
+
+</html>

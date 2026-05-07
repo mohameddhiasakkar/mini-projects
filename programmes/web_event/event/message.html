@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EventHub | Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="css/message.css" />
+
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="/api/placeholder/40/40" alt="Logo" />
+            <span class="brand-name">EventHub</span>
+        </div>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-center" id="navMenu">
+            <a href="message.php" class="active">News</a>
+            <a href="faq.php">FAQ</a>
+            <a href="aide.php">Help</a>
+            <a href="apropos.php">About Us</a>
+        </div>
+        <div class="navbar-right">
+            <button class="create-btn">
+                <i class="fas fa-plus"></i>
+                <a href="create.php">create</a>
+            </button>
+            <div class="user-profile" id="userProfile">
+                <div class="user-avatar">
+                    <?= $initials ?>
+                </div>
+                <span class="user-name"><?= htmlspecialchars(explode('@', $user['email'])[0]) ?></span>
+                <i class="fas fa-chevron-down"></i>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                    <a href="settings.php"><i class="fas fa-cog"></i> Settings</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="main-content">
+            <div class="welcome-section">
+                <h1>Welcome
+                    <?= htmlspecialchars(explode('@', $user['email'])[0]) ?>
+                </h1>
+                <h2>Discover events that excite you</h2>
+            </div>
+
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-bar" placeholder="Search for events, locations or categories..." />
+            </div>
+
+            <h3 class="category-title">Explore by Category</h3>
+            <div class="categories">
+                <!-- Festival -->
+                <div class="category">
+                    <div class="category-img-container">
+                        <img src="https://www.visit.alsace/wp-content/uploads/2018/11/festival-decibulles-2017-laurent-khram-longvixay-1-1600x900.jpg" alt="Festivals" />
+                    </div>
+                    <div class="category-info">
+                        <a href="festivals.php" class="category-link">
+                            <div class="category-name">Festivals</div>
+                        </a>
+                        <div class="category-desc">Discover the best music, art and culture festivals.</div>
+                        <span class="category-count">125 events</span>
+                    </div>
+                </div>
+
+                <!-- Concerts -->
+                <div class="category">
+                    <div class="category-img-container">
+                        <img src="https://offloadmedia.feverup.com/parissecret.com/wp-content/uploads/2023/09/06110716/Montage-photos-articles-PS-2023-12-06T110657.772-1024x683.jpg" alt="Concerts" />
+                    </div>
+                    <div class="category-info">
+                        <a href="concerts.php" class="category-link">
+                            <div class="category-name">Concerts</div>
+                        </a>
+                        <div class="category-desc">Live performances from your favorite artists near you.</div>
+                        <span class="category-count">87 events</span>
+                    </div>
+                </div>
+
+                <!-- Sports -->
+                <div class="category">
+                    <div class="category-img-container">
+                        <img src="https://www.kantar.com/-/media/project/kantar/global/articles/images/2024/brands-sports-ads_1500x1000jpeg.jpeg" alt="Sports" />
+                    </div>
+                    <div class="category-info">
+                        <div class="category-name">Sports</div>
+                        <div class="category-desc">Matches, tournaments and sports events for all fans.</div>
+                        <span class="category-count">94 events</span>
+                    </div>
+                </div>
+
+                <!-- Games -->
+                <div class="category">
+                    <div class="category-img-container">
+                        <img src="https://i5.walmartimages.com/dfw/4ff9c6c9-e398/k2-_8d0ff3c6-d007-4f05-89f8-3e22cf81825b.v1.jpg?odnHeight=680&odnWidth=1208&odnBg=FFFFFF" alt="Games" />
+                    </div>
+                    <div class="category-info">
+                        <div class="category-name">Games</div>
+                        <div class="category-desc">Video game tournaments, board game nights and more.</div>
+                        <span class="category-count">56 events</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trending -->
+            <div class="trending-section">
+                <div class="section-header">
+                    <h3 class="section-title">
+                        <i class="fas fa-fire" style="color: var(--accent);"></i> Trending Near You
+                    </h3>
+                    <a href="#" class="view-all">View All <i class="fas fa-arrow-right"></i></a>
+                </div>
+                <div class="event-cards">
+                    <!-- Card 1 -->
+                    <div class="event-card">
+                        <img src="/api/placeholder/280/150" alt="Jazz Festival" class="event-img" />
+                        <div class="event-info">
+                            <div class="event-date"><i class="far fa-calendar"></i> Apr 15-17, 2025</div>
+                            <div class="event-title">International Jazz Festival</div>
+                            <div class="event-location"><i class="fas fa-map-marker-alt"></i> Parc de la Villette, Paris</div>
+                            <div class="event-footer">
+                                <span class="event-price">From $45</span>
+                                <span class="event-interest"><i class="far fa-heart"></i> 1.2k interested</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="event-card">
+                        <img src="/api/placeholder/280/150" alt="Rock Concert" class="event-img" />
+                        <div class="event-info">
+                            <div class="event-date"><i class="far fa-calendar"></i> Apr 22, 2025</div>
+                            <div class="event-title">Imagine Dragons - Live Tour</div>
+                            <div class="event-location"><i class="fas fa-map-marker-alt"></i> AccorHotels Arena, Paris</div>
+                            <div class="event-footer">
+                                <span class="event-price">From $75</span>
+                                <span class="event-interest"><i class="far fa-heart"></i> 3.5k interested</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="event-card">
+                        <img src="/api/placeholder/280/150" alt="Gaming Tournament" class="event-img" />
+                        <div class="event-info">
+                            <div class="event-date"><i class="far fa-calendar"></i> May 8-9, 2025</div>
+                            <div class="event-title">Paris E-Sport Games Tournament</div>
+                            <div class="event-location"><i class="fas fa-map-marker-alt"></i> Paris Expo Porte de Versailles</div>
+                            <div class="event-footer">
+                                <span class="event-price">From $25</span>
+                                <span class="event-interest"><i class="far fa-heart"></i> 940 interested</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4 class="footer-title">About</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-info-circle"></i> Our Story</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Our Team</a></li>
+                    <li><a href="#"><i class="fas fa-briefcase"></i> Careers</a></li>
+                    <li><a href="#"><i class="fas fa-newspaper"></i> News</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Help Center</a></li>
+                    <li><a href="#"><i class="fas fa-ticket-alt"></i> Contact Support</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> Guides</a></li>
+                    <li><a href="#"><i class="fas fa-shield-alt"></i> Safety</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-lock"></i> Privacy</a></li>
+                    <li><a href="#"><i class="fas fa-file-contract"></i> Terms of Use</a></li>
+                    <li><a href="#"><i class="fas fa-cookie"></i> Cookies</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-column">
+                <h4 class="footer-title">Newsletter</h4>
+                <p>Get the latest news and special offers directly to your inbox.</p>
+                <form class="newsletter-form" method="POST" action="subscribe.php">
+                    <input type="email" name="email" placeholder="Your email" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 EventHub. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+        mobileMenuToggle.addEventListener('click', () => navMenu.classList.toggle('show'));
+
+        // Dropdown toggle
+        const userProfile = document.getElementById('userProfile');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+        userProfile.addEventListener('click', (e) => {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('show');
+        });
+        document.addEventListener('click', () => dropdownMenu.classList.remove('show'));
+        dropdownMenu.addEventListener('click', (e) => e.stopPropagation());
+
+        // Hover effects
+        document.querySelectorAll('.category').forEach(cat => {
+            cat.addEventListener('mouseenter', () => {
+                cat.querySelector('.category-desc').style.opacity = '1';
+            });
+            cat.addEventListener('mouseleave', () => {
+                cat.querySelector('.category-desc').style.opacity = '0';
+            });
+        });
+    </script>
+</body>
+
+</html>

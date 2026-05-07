@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - EventHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/apropos.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="/api/placeholder/40/40" alt="Logo">
+            <span class="brand-name">EventHub</span>
+        </div>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-center" id="navMenu">
+            <a href="message.php">News</a>
+            <a href="faq.php">FAQ</a>
+            <a href="aide.php">Help</a>
+            <a href="apropos.php" class="active">About Us</a>
+        </div>
+        <div class="navbar-right">
+            <button class="create-btn">
+                <i class="fas fa-plus"></i>
+                <a href="create.php">Create</a>
+            </button>
+            <div class="user-profile" id="userProfile">
+                <div class="user-avatar">
+                    <?= $initials ?>
+                </div>
+                <span class="user-name"><?= htmlspecialchars(explode('@', $user['email'])[0]) ?></span>
+                <i class="fas fa-chevron-down"></i>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                    <a href="settings.php"><i class="fas fa-cog"></i> Settings</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="page-header">
+            <h1 class="page-title">About EventHub</h1>
+            <p class="page-description">Discover our mission, our team, and our passion for connecting people through unforgettable events.</p>
+        </div>
+
+        <div class="about-container">
+            <div class="about-section">
+                <h2 class="about-section-title">Our Story</h2>
+                <div class="about-section-content">
+                    <p>Founded in 2020, EventHub was born from four friends' passion for cultural events and the desire to make event discovery and organization more accessible to everyone.</p>
+                    <p>What started as a small local project in Tunis quickly grew into a national platform, connecting thousands of people to events that matter to them.</p>
+                    <p>Today, EventHub is the leading platform for discovering and organizing events of all sizes, from small community meetups to major cultural festivals.</p>
+                </div>
+            </div>
+
+            <div class="about-section">
+                <h2 class="about-section-title">Our Mission</h2>
+                <div class="about-section-content">
+                    <p>At EventHub, we believe live events have the power to transform lives, create communities, and bring people together.</p>
+                    <p>Our mission is to democratize access to cultural events and provide organizers with the tools they need to succeed.</p>
+                    <p>We are committed to:</p>
+                    <ul style="margin-left: 20px; margin-bottom: 20px; color:rgb(227, 219, 224);  ">
+                        <li>Making event discovery intuitive and personalized</li>
+                        <li>Making event organization accessible to all</li>
+                        <li>Creating meaningful connections between attendees</li>
+                        <li>Supporting creators and local small businesses</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <div class="stat-item">
+                    <div class="stat-number">50K+</div>
+                    <div class="stat-label">Events created</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">2M+</div>
+                    <div class="stat-label">Attendees</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">120+</div>
+                    <div class="stat-label">Cities covered</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div class="stat-label">Customer satisfaction</div>
+                </div>
+            </div>
+
+            <div class="team-section">
+                <h2 class="team-title">Our Team</h2>
+                <p class="page-description">Meet the passionate people who make EventHub what it is today</p>
+
+                <div class="team-members">
+                    <div class="team-member">
+                        <img src="/api/placeholder/200/200" alt="mohamed dhia sakkar" class="member-avatar">
+                        <h3 class="member-name">mohamed dhia sakkar</h3>
+                        <p class="member-position">CEO & Co-founder</p>
+                        <p class="member-bio">Visionary leader with expertise in event management and business strategy.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="/api/placeholder/200/200" alt=" Hechem Klai" class="member-avatar">
+                        <h3 class="member-name"> Hechem Klai</h3>
+                        <p class="member-position">CTO & Co-founder</p>
+                        <p class="member-bio">Technology expert with 7 years of experience developing complex web platforms.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="/api/placeholder/200/200" alt="Wael Hidri" class="member-avatar">
+                        <h3 class="member-name">Wael Hidri</h3>
+                        <p class="member-position">Marketing Director</p>
+                        <p class="member-bio">Digital marketing specialist with a passion for community building and growth.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+
+                    <div class="team-member">
+                        <img src="/api/placeholder/200/200" alt="Haythem Rahmouni" class="member-avatar">
+                        <h3 class="member-name">Haythem Rahmouni</h3>
+                        <p class="member-position">Product Manager</p>
+                        <p class="member-bio">UX specialist focused on creating seamless user experiences for our platform.</p>
+                        <div class="social-links">
+                            <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#" class="social-link"><i class="fab fa-dribbble"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta-section">
+                <h2 class="cta-title">Ready to experience EventHub?</h2>
+                <p class="cta-description">Whether you want to discover exciting events or organize your own, our platform is designed for you.</p>
+                <button class="cta-button">
+                    Get started now
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4 class="footer-title">About</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-info-circle"></i> Our Story</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Our Team</a></li>
+                    <li><a href="#"><i class="fas fa-briefcase"></i> Careers</a></li>
+                    <li><a href="#"><i class="fas fa-newspaper"></i> News</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Help Center</a></li>
+                    <li><a href="#"><i class="fas fa-ticket-alt"></i> Contact Support</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> Guides</a></li>
+                    <li><a href="#"><i class="fas fa-shield-alt"></i> Safety</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-lock"></i> Privacy</a></li>
+                    <li><a href="#"><i class="fas fa-file-contract"></i> Terms of Use</a></li>
+                    <li><a href="#"><i class="fas fa-cookie"></i> Cookies</a></li>
+                </ul>
+                <div class="footer-social-links">
+                    <a href="#" class="footer-social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="footer-social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Newsletter</h4>
+                <p>Get the latest news and special offers directly to your inbox.</p>
+                <form class="newsletter-form" method="post" action="newsletter.php">
+                    <input type="email" name="email" placeholder="Your email" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 EventHub. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('show');
+        });
+
+        // Dropdown menu functionality
+        const userProfile = document.getElementById('userProfile');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        userProfile.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking elsewhere
+        document.addEventListener('click', function() {
+            dropdownMenu.classList.remove('show');
+        });
+
+        // Prevent dropdown from closing when clicking inside it
+        dropdownMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    </script>
+</body>
+
+</html>

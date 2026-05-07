@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Center - EventHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/aide.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="/api/placeholder/40/40" alt="Logo">
+            <span class="brand-name">EventHub</span>
+        </div>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-center" id="navMenu">
+            <a href="message.php">News</a>
+            <a href="faq.php">FAQ</a>
+            <a href="aide.php" class="active">Help</a>
+            <a href="apropos.php">About Us</a>
+        </div>
+        <div class="navbar-right">
+            <button class="create-btn">
+                <i class="fas fa-plus"></i>
+                <a href="create.php">Create</a>
+            </button>
+            <div class="user-profile" id="userProfile">
+                <div class="user-avatar">
+                    <?= $initials ?>
+                </div>
+                <span class="user-name"><?= htmlspecialchars(explode('@', $user['email'])[0]) ?></span>
+                <i class="fas fa-chevron-down"></i>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                    <a href="settings.php"><i class="fas fa-cog"></i> Settings</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container">
+        <div class="page-header">
+            <h1 class="page-title">EventHub Help Center</h1>
+            <p class="page-description">Find all the resources you need to use our event platform with ease.</p>
+        </div>
+
+        <div class="help-search">
+            <i class="fas fa-search help-search-icon"></i>
+            <input type="text" class="help-search-bar" placeholder="How can we help you today?">
+        </div>
+
+        <div class="help-container">
+            <div class="help-sections">
+                <div class="help-section">
+                    <div class="help-section-icon">
+                        <i class="fas fa-ticket-alt"></i>
+                    </div>
+                    <h3 class="help-section-title">Tickets & Bookings</h3>
+                    <p class="help-section-description">Everything you need to know about purchasing, managing, and canceling your event tickets.</p>
+                    <a href="#" class="help-section-link">
+                        Learn more
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="help-section">
+                    <div class="help-section-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="help-section-title">Organizing an Event</h3>
+                    <p class="help-section-description">Complete guide to creating, promoting and managing your event on EventHub.</p>
+                    <a href="#" class="help-section-link">
+                        Learn more
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="help-section">
+                    <div class="help-section-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3 class="help-section-title">Payments & Billing</h3>
+                    <p class="help-section-description">Information about payment methods, refunds and invoices.</p>
+                    <a href="#" class="help-section-link">
+                        Learn more
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="help-section">
+                    <div class="help-section-icon">
+                        <i class="fas fa-user-cog"></i>
+                    </div>
+                    <h3 class="help-section-title">Account Management</h3>
+                    <p class="help-section-description">How to set up and secure your EventHub account.</p>
+                    <a href="#" class="help-section-link">
+                        Learn more
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="popular-articles">
+                <h3 class="popular-articles-title">Popular Articles</h3>
+                <ul class="articles-list">
+                    <li class="article-item">
+                        <a href="#" class="article-link">
+                            How to transfer my ticket to a friend?
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                    <li class="article-item">
+                        <a href="#" class="article-link">
+                            Refund policy for canceled events
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                    <li class="article-item">
+                        <a href="#" class="article-link">
+                            Add a photo to my profile
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                    <li class="article-item">
+                        <a href="#" class="article-link">
+                            Problems logging into my account
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                    <li class="article-item">
+                        <a href="#" class="article-link">
+                            How to promote my event?
+                            <i class="fas fa-chevron-right"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contact-section">
+            <h3 class="contact-title">Need additional help?</h3>
+            <p class="contact-description">Our support team is available to assist you. Choose your preferred contact method.</p>
+
+            <div class="contact-options">
+                <div class="contact-option">
+                    <i class="fas fa-comments"></i>
+                    <h4>Live Chat</h4>
+                    <p>Chat with an agent in real time</p>
+                </div>
+                <div class="contact-option">
+                    <i class="fas fa-envelope"></i>
+                    <h4>Email</h4>
+                    <p>Response within 24 hours</p>
+                </div>
+                <div class="contact-option">
+                    <i class="fas fa-phone-alt"></i>
+                    <h4>Phone</h4>
+                    <p>Mon-Fri, 9am-6pm</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h4 class="footer-title">About</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-info-circle"></i> Our Story</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> Our Team</a></li>
+                    <li><a href="#"><i class="fas fa-briefcase"></i> Careers</a></li>
+                    <li><a href="#"><i class="fas fa-newspaper"></i> News</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Support</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-question-circle"></i> Help Center</a></li>
+                    <li><a href="#"><i class="fas fa-ticket-alt"></i> Contact Support</a></li>
+                    <li><a href="#"><i class="fas fa-book"></i> Guides</a></li>
+                    <li><a href="#"><i class="fas fa-shield-alt"></i> Safety</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-lock"></i> Privacy</a></li>
+                    <li><a href="#"><i class="fas fa-file-contract"></i> Terms of Use</a></li>
+                    <li><a href="#"><i class="fas fa-cookie"></i> Cookies</a></li>
+                </ul>
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+            <div class="footer-column">
+                <h4 class="footer-title">Newsletter</h4>
+                <p>Get the latest news and special offers directly to your inbox.</p>
+                <form class="newsletter-form" action="aide.php" method="post">
+                    <input type="email" placeholder="Your email" class="newsletter-input" required>
+                    <button type="submit" class="newsletter-btn"><i class="fas fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2025 EventHub. All rights reserved.
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('show');
+        });
+
+        // Dropdown menu functionality
+        const userProfile = document.getElementById('userProfile');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        userProfile.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking elsewhere
+        document.addEventListener('click', function() {
+            dropdownMenu.classList.remove('show');
+        });
+
+        // Prevent dropdown from closing when clicking inside it
+        dropdownMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // Animate article links on hover
+        document.querySelectorAll('.article-link').forEach(link => {
+            link.addEventListener('mouseenter', function() {
+                this.querySelector('i').style.opacity = '1';
+                this.querySelector('i').style.transform = 'translateX(5px)';
+            });
+
+            link.addEventListener('mouseleave', function() {
+                this.querySelector('i').style.opacity = '0';
+                this.querySelector('i').style.transform = 'translateX(0)';
+            });
+        });
+    </script>
+</body>
+
+</html>

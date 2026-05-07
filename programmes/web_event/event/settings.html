@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - EventHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/setting.css">
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="navbar-left">
+            <img src="/api/placeholder/40/40" alt="Logo">
+            <span class="brand-name">EventHub</span>
+        </div>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="navbar-center" id="navMenu">
+            <a href="message.php">News</a>
+            <a href="faq.php">FAQ</a>
+            <a href="aide.php">Help</a>
+            <a href="apropos.php">About Us</a>
+        </div>
+        <div class="navbar-right">
+            <button class="create-btn">
+                <i class="fas fa-plus"></i>
+                <a href="create.php">Create</a>
+            </button>
+            <div class="user-profile" id="userProfile">
+                <div class="user-avatar">
+                    <?= $initials ?>
+                </div>
+                <span class="user-name"><?= htmlspecialchars(isset($user['name']) ? $user['name'] : explode('@', $user['email'])[0]) ?></span>
+                <i class="fas fa-chevron-down"></i>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="logout.php"><i class="fas fa-sign-out-alt"></i> Log Out</a>
+                    <a href="settings.php" class="active"><i class="fas fa-cog"></i> Settings</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="settings-container">
+            <div class="settings-sidebar">
+                <h3 class="settings-sidebar-title">Settings</h3>
+                <ul class="settings-menu">
+                    <li><a href="#profile" class="active"><i class="fas fa-user"></i> Profile</a></li>
+                    <li><a href="#account"><i class="fas fa-lock"></i> Account Security</a></li>
+                    <li><a href="#notifications"><i class="fas fa-bell"></i> Notifications</a></li>
+                    <li><a href="#privacy"><i class="fas fa-shield-alt"></i> Privacy</a></li>
+                    <li><a href="#preferences"><i class="fas fa-sliders-h"></i> Preferences</a></li>
+                </ul>
+            </div>
+
+            <div class="settings-content">
+                <?php if (isset($success_message)): ?>
+                <div class="alert alert-success">
+                    <?= htmlspecialchars($success_message) ?>
+                </div>
+                <?php endif; ?>
+
+                <?php if (isset($error_message)): ?>
+                <div class="alert alert-danger">
+                    <?= htmlspecialchars($error_message) ?>
+                </div>
+                <?php endif; ?>
+
+                <section id="profile" class="settings-section">
+                    <h2 class="settings-section-title">Profile Information</h2>
+
+                    <div class="profile-info">
+                        <div class="profile-avatar">
+                            <?= $initials ?>
+                                <div class="profile-avatar-edit">
+                                    <i class="fas fa-camera"></i> Change
+                                </div>
+                        </div>
+                        <div class="profile-text">
+                            <h3>
+                                <?= htmlspecialchars(isset($user['name']) ? $user['name'] : explode('@', $user['email'])[0]) ?>
+                            </h3>
+                            <p>
+                                <?= htmlspecialchars($user['email']) ?>
+                            </p>
+                            <div class="profile-stats">
+                                <div class="profile-stat">
+                                    <div class="profile-stat-value">24</div>
+                                    <div class="profile-stat-label">Events</div>
+                                </div>
+                                <div class="profile-stat">
+                                    <div class="profile-stat-value">128</div>
+                                    <div class="profile-stat-label">Following</div>
+                                </div>
+                                <div class="profile-stat">
+                                    <div class="profile-stat-value">56</div>
+                                    <div class="profile-stat-label">Followers</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form method="POST" action="settings.php">
+                        <div class="form-group">
+                            <label for="name" class="form-label">Full Name</label>
+                            <input type="text" id="name" name="name" class="form-control" value="<?= htmlspecialchars($user['name'] ?? '') ?>">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" id="email" name="email" class="form-control" value="<?= htmlspecialchars($user['email']) ?>" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bio" class="form-label">Bio</label>
+                            <textarea id="bio" name="bio" class="form-control"><?= htmlspecialchars($user['bio'] ?? '') ?></textarea>
+                        </div>
+
+                        <button type="submit" name="update_profile" class="btn btn-primary">Update Profile</button>
+                    </form>
+                </section>
+
+                <section id="account" class="settings-section">
+                    <h2 class="settings-section-title">Account Security</h2>
+
+                    <form method="POST" action="settings.php">
+                        <div class="form-group">
+                            <label for="current_password" class="form-label">Current Password</label>
+                            <input type="password" id="current_password" name="current_password" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="new_password" class="form-label">New Password</label>
+                            <input type="password" id="new_password" name="new_password" class="form-control" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirm_password" class="form-label">Confirm New Password</label>
+                            <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
+                        </div>
+
+                        <button type="submit" name="change_password" class="btn btn-primary">Change Password</button>
+                    </form>
+
+                    <div class="danger-zone">
+                        <h3 class="danger-zone-title">Danger Zone</h3>
+                        <p>Deleting your account will remove all your data from our servers. This action cannot be undone.</p>
+                        <button class="btn btn-danger">Delete Account</button>
+                    </div>
+                </section>
+
+                <section id="notifications" class="settings-section">
+                    <h2 class="settings-section-title">Notification Preferences</h2>
+
+                    <form method="POST" action="settings.php">
+                        <div class="form-group">
+                            <h4>Email Notifications</h4>
+
+                            <label class="checkbox-label">
+                                <span>Event reminders</span>
+                                <label class="switch">
+                                    <input type="checkbox" name="event_reminders" <?= isset($user['event_reminders']) && $user['event_reminders'] ? 'checked' : '' ?>>
+                                    <span class="slider"></span>
+                                </label>
+                            </label>
+
+                            <label class="checkbox-label">
+                                <span>New event recommendations</span>
+                                <label class="switch">
+                                    <input type="checkbox" name="email_notifications" <?= isset($user['email_notifications']) && $user['email_notifications'] ? 'checked' : '' ?>>
+                                    <span class="slider"></span>
+                                </label>
+                            </label>
+                        </div>
+
+                        <div class="form-group">
+                            <h4>Push Notifications</h4>
+
+                            <label class="checkbox-label">
+                                <span>Enable push notifications</span>
+                                <label class="switch">
+                                    <input type="checkbox" name="push_notifications" <?= isset($user['push_notifications']) && $user['push_notifications'] ? 'checked' : '' ?>>
+                                    <span class="slider"></span>
+                                </label>
+                            </label>
+                        </div>
+
+                        <button type="submit" name="update_notifications" class="btn btn-primary">Save Preferences</button>
+                    </form>
+                </section>
+
+                <section id="privacy" class="settings-section">
+                    <h2 class="settings-section-title">Privacy Settings</h2>
+                    <p>Coming soon...</p>
+                </section>
+
+                <section id="preferences" class="settings-section">
+                    <h2 class="settings-section-title">Preferences</h2>
+                    <p>Coming soon...</p>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuToggle.addEventListener('click', function() {
+            navMenu.classList.toggle('show');
+        });
+
+        // Dropdown menu functionality
+        const userProfile = document.getElementById('userProfile');
+        const dropdownMenu = document.getElementById('dropdownMenu');
+
+        userProfile.addEventListener('click', function(e) {
+            e.stopPropagation();
+            dropdownMenu.classList.toggle('show');
+        });
+
+        // Close dropdown when clicking elsewhere
+        document.addEventListener('click', function() {
+            dropdownMenu.classList.remove('show');
+        });
+
+        // Prevent dropdown from closing when clicking inside it
+        dropdownMenu.addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+
+        // Smooth scrolling for settings sections
+        document.querySelectorAll('.settings-menu a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                // Remove active class from all links
+                document.querySelectorAll('.settings-menu a').forEach(link => {
+                    link.classList.remove('active');
+                });
+
+                // Add active class to clicked link
+                this.classList.add('active');
+
+                // Scroll to section
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                targetSection.scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Handle active section on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('.settings-section');
+            const scrollPosition = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    const id = '#' + section.getAttribute('id');
+                    document.querySelectorAll('.settings-menu a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === id) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
