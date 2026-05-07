@@ -1,0 +1,160 @@
+<section class="recommendation">
+  <h2>University recommendation</h2>
+
+  <form class="form" (ngSubmit)="submit()">
+    <label>
+      Age
+      <input name="age" [(ngModel)]="student.age" placeholder="e.g. 20" />
+    </label>
+    <label>
+      Country
+      <input
+        name="country"
+        [(ngModel)]="student.country"
+        placeholder="e.g. Tunisia"
+        required
+      />
+    </label>
+    <div class="major-block">
+      <label for="major-field">Field of study / major</label>
+      <p class="hint">
+        Sciences, engineering, energy, medicine, business — type your track (English or French). This
+        layer is scored separately from the skills list below.
+      </p>
+      <input
+        id="major-field"
+        name="major"
+        [(ngModel)]="student.major"
+        placeholder="e.g. Electrical engineering, renewable energy, physics, medicine"
+      />
+      <p class="chips-label">Quick add fields</p>
+      <div class="chips" aria-label="Add typical fields of study">
+        @for (m of quickMajors; track m) {
+          <button type="button" class="chip chip-major" (click)="addMajor(m)">{{ m }}</button>
+        }
+      </div>
+    </div>
+    <label>
+      Language
+      <input name="language" [(ngModel)]="student.language" placeholder="e.g. English" />
+    </label>
+
+    <div class="skills-block">
+      <label for="skills-field">Skills</label>
+      <p class="hint">
+        List everything you are good at — coding, dance, sports, languages, soft skills. Separate with
+        commas. The scorer recognizes many areas (tech, arts, sports, STEM, leadership, …).
+      </p>
+      <textarea
+        id="skills-field"
+        name="skills"
+        rows="4"
+        [(ngModel)]="student.skills"
+        placeholder="e.g. Python, React, dance, public speaking, Spanish, yoga, photography, teamwork"
+      ></textarea>
+      <p class="chips-label">Quick add</p>
+      <div class="chips" aria-label="Add suggested skills">
+        @for (s of quickSkills; track s) {
+          <button type="button" class="chip" (click)="addSkill(s)">{{ s }}</button>
+        }
+      </div>
+    </div>
+
+    <label>
+      Moyenne (GPA scale)
+      <input name="moyenne" [(ngModel)]="student.moyenne" placeholder="e.g. 14" />
+    </label>
+
+    <button type="submit" [disabled]="loading">
+      {{ loading ? 'Loading…' : 'Get recommendations' }}
+    </button>
+  </form>
+
+  @if (error) {
+    <p class="error" role="alert">{{ error }}</p>
+  }
+
+  @if (meta) {
+    <section class="score-meta" aria-label="How your score is built">
+      @if (meta.model) {
+        <div class="model-banner">
+          <p class="model-name">{{ meta.model.library }} · {{ meta.model.id }}</p>
+          <p class="model-desc">{{ meta.model.description }}</p>
+        </div>
+      }
+      <h3>Your profile score (max 100)</h3>
+      <ul class="score-parts">
+        <li>
+          <span class="label">Country match (per university)</span>
+          <span class="val">up to {{ meta.points.country_max }}</span>
+        </li>
+        <li>
+          <span class="label">Skills &amp; breadth</span>
+          <span class="val">{{ meta.points.skills }}</span>
+        </li>
+        <li>
+          <span class="label">Field of study (major)</span>
+          <span class="val">{{ meta.points.study }}</span>
+        </li>
+        <li>
+          <span class="label">Grades (moyenne)</span>
+          <span class="val">{{ meta.points.grades }}</span>
+        </li>
+      </ul>
+      @if (meta.study_categories.length) {
+        <p class="categories-title study-title">Study areas detected</p>
+        <ul class="categories">
+          @for (c of meta.study_categories; track c) {
+            <li>{{ c }}</li>
+          }
+        </ul>
+      }
+      @if (meta.skill_categories.length) {
+        <p class="categories-title">Skill areas detected</p>
+        <ul class="categories">
+          @for (c of meta.skill_categories; track c) {
+            <li>{{ c }}</li>
+          }
+        </ul>
+      }
+      @if (meta.skill_breadth_bonus > 0) {
+        <p class="breadth">Breadth bonus: +{{ meta.skill_breadth_bonus }} (you listed many distinct skills)</p>
+      }
+      <p class="listed-count">{{ meta.skills_listed }} skill entries parsed from your text</p>
+      @if (meta.query_text_length !== undefined) {
+        <p class="listed-count">Profile text for ML ranking: {{ meta.query_text_length }} characters</p>
+      }
+    </section>
+  }
+
+  <hr />
+
+  <ul class="results">
+    @for (uni of results; track uni.name) {
+      <li>
+        <h3>{{ uni.name }}</h3>
+        <p>Country: {{ uni.country }}</p>
+        <p>Match score: {{ uni.score }} / 100</p>
+        @if (uni.components) {
+          <dl class="components">
+            <div>
+              <dt>Country match</dt>
+              <dd>{{ uni.components.country }} pts</dd>
+            </div>
+            <div>
+              <dt>Rules (skills + study + grades)</dt>
+              <dd>{{ uni.components.rules_profile }} pts</dd>
+            </div>
+            <div>
+              <dt>Semantic match (TF‑IDF)</dt>
+              <dd>
+                {{ uni.components.similarity }} pts
+                <span class="sim-coef">(cosine {{ uni.components.similarity_01 }})</span>
+              </dd>
+            </div>
+          </dl>
+        }
+      </li>
+    }
+  </ul>
+</section>
