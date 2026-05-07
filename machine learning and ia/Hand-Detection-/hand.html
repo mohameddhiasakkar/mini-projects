@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Tinder</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            padding: 40px;
+            text-align: center;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: auto;
+            position: absolute;
+            top: 20%;
+            left: 50%;
+            transform: translateX(-50%);
+            transition: transform 0.5s;
+        }
+
+        .card img {
+            max-width: 100%;
+            border-radius: 10px;
+        }
+
+        .card h3 {
+            margin-top: 15px;
+            color: #333;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .buttons button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background: #6b4e16;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .buttons button:hover {
+            background: #5b3d14;
+        }
+
+        .swipe {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Find Your Perfect Coffee</h1>
+
+    <div class="card" id="coffeeCard">
+        <img src="https://via.placeholder.com/300x200" alt="Coffee Image" id="coffeeImage">
+        <h3 id="coffeeName">Espresso</h3>
+        <p id="coffeeDescription">Strong and bold. A true classic for those who love intensity!</p>
+    </div>
+
+    <div class="buttons">
+        <button onclick="swipeLeft()">No</button>
+        <button onclick="swipeRight()">Yes</button>
+    </div>
+
+    <script>
+        const coffeeOptions = [{
+            name: 'Espresso',
+            image: 'https://via.placeholder.com/300x200',
+            description: 'Strong and bold. A true classic for those who love intensity!',
+        }, {
+            name: 'Latte',
+            image: 'https://via.placeholder.com/300x200/6b4e16/ffffff',
+            description: 'Smooth, creamy, and perfect for a relaxing day.',
+        }, {
+            name: 'Iced Coffee',
+            image: 'https://via.placeholder.com/300x200/0000ff/ffffff',
+            description: 'Cool and refreshing for those hot summer days.',
+        }, {
+            name: 'Cappuccino',
+            image: 'https://via.placeholder.com/300x200/8e44ad/ffffff',
+            description: 'A balanced blend of espresso, steamed milk, and foam.',
+        }];
+
+        let currentIndex = 0;
+
+        function swipeLeft() {
+            currentIndex = (currentIndex + 1) % coffeeOptions.length;
+            updateCoffeeCard();
+        }
+
+        function swipeRight() {
+            alert('Enjoy your ' + coffeeOptions[currentIndex].name + '!');
+            swipeLeft(); // Show next coffee option
+        }
+
+        function updateCoffeeCard() {
+            const coffee = coffeeOptions[currentIndex];
+            document.getElementById('coffeeName').innerText = coffee.name;
+            document.getElementById('coffeeDescription').innerText = coffee.description;
+            document.getElementById('coffeeImage').src = coffee.image;
+        }
+
+        function fetchGesture() {
+            fetch('/gesture')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.action === "Next") {
+                        swipeLeft();
+                    } else if (data.action === "Back") {
+                        swipeRight();
+                    } else if (data.action === "Yes") {
+                        alert('Enjoy your ' + coffeeOptions[currentIndex].name + '!');
+                    }
+                });
+        }
+
+        setInterval(fetchGesture, 500); // Poll every 500ms for hand gestures
+
+        updateCoffeeCard();
+    </script>
+</body>
+
+</html>
